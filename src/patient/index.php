@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
+    
+    <?php 
+      session_start();  
+        
+    
+     
+         $SSN = $_SESSION['ID'];   
+        
+        if (!isset($SSN)){
+           $SSN = 0; 
+        }
+
+        
+    
+    ?>
     <head>
         <title>Portail Patient</title>
         
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="../img/patient.png">
+        
         
     </head>
     
@@ -19,7 +36,7 @@
         
         <div class = "header">
         <h1 >&nbsp;   Bienvenue</h1>
-        <a href = "blank.php"><img src = "Log_out.png" alt="Se déconnecter" > </a>
+        <a href = "../"><img src = "../img/Log_out.png" alt="Se déconnecter" > </a>
         </div>
         
         
@@ -33,26 +50,28 @@
                  
                  <h2> Rendez-vous</h2>
                  <div class= "userInfo">
-                     <table >
-
-                     </table>
+                     <?php include('rdv.php'); ?>
                  </div>
                  
             
             
             </div>
             
+            <?php
             
-            <div class = "flexbox-item">
-            <h2>Précédents traitements</h2>
+            
+            #<div class = "flexbox-item">
+            #<h2>Précédents traitements</h2>
                 
-                <div class= "userInfo">
-                     <table >
+             #   <div class= "userInfo">
+              #       <table >
 
-                     </table>
-                 </div>
+               #      </table>
+                # </div>
                 
-            </div>
+            #</div>
+                
+                ?>
             
             
         </div>

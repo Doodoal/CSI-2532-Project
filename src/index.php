@@ -19,7 +19,7 @@
           </div>
         </div>
         <form class="login-form" action="login1.php" method="POST">
-          <input type="number" placeholder="SIN" name="SIN"/>
+          <input type="number" placeholder="SSN" name="SSN"/>
           <input type="password" placeholder="MOT DE PASSE" name="password" />
           <button>CONNEXION</button>
           <p class="message">Vous n'avez pas de compte? <a href="#">Creez en un</a></p>

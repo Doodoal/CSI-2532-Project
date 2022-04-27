@@ -55,7 +55,28 @@ input{
   }
 }
 
+tr{
+    border-bottom-color: black;
+    
+}
 
+td{
+    margin: 3px 3px 3px 3px ;
+    background-color: lightgrey;
+    
+    
+}
+
+table{
+    width: 600px;
+}
+
+th{
+    margin: 3px 3px 3px 3px ;
+    background-color: black;
+    color: white;
+    
+}
 
 
 .flexbox-item{

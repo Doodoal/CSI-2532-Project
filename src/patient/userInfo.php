@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
-  
-    <?php 
+        <html>
+
     
+    <?php
+        
         #Connexion
         try
         {
@@ -13,9 +14,33 @@
                 die('Erreur : ' . $e->getMessage());
         }
 
+        
+        $sqlQuery = 'SELECT *
+        
+        
+        FROM utilisateur WHERE SSN = :SSN ';
+
+        $dataStatement = $db->prepare($sqlQuery);
+            
+        $dataStatement->bindParam(':SSN', $SSN);
     
-    $Uname = "Nom non renseigné";
+        $dataStatement->execute();
+        $datas = $dataStatement->fetchAll();
     
+        foreach ($datas as $data) {
+            $Uname = $data['Name']?? 'Nom non renseigné';
+            $Upassword = $data['Password']?? '---------';
+            $Usurname = $data['surname']?? 'Prénom(s) non renseigné(s)';
+            $Ubirthday = $data['birthday'];
+            $Uemail = $data['email'] ??'Veuillez renseigner votre email';
+            
+            $Ustreet = $data['street'] ??'Veuillez renseigner votre rue';
+            $Ucity = $data['city'] ??'Veuillez renseigner votre ville';
+            $Uprovince = $data['province']?? 'Veuillez renseigner votre province' ;
+            
+            $Ucodepostal = $data['code-postal'] ?? 'Veuillez renseigner votre code postal' ;
+        }
+
     ?>
     
 
@@ -48,18 +73,28 @@
 
              <div class= "box">
                 <label class = "infoType"> Prénom(s) </label>
-                <input type = "text" 
+                 
+                 <?php
+                 
+                 echo '<input type = "text" 
                        name = "name" 
-                       placeholder= "Prénom(s) non renseigné(s)" 
-                       disabled= "disabled">
+                       placeholder= "'.$Usurname.'" 
+                       disabled= "disabled">'
+                 ?>
+                
 
             </div>
 
             <div class= "box">
                 <label class = "infoType"> Date de Naissance </label>
-                <input type = "date" 
-                       name = "birthday" 
-                       disabled= "disabled">
+                
+                <?php
+                    
+                echo '<input type = "date" 
+                       name = "birthday" value="'.$Ubirthday.'" 
+                       disabled= "disabled">'
+                    
+                ?>
             </div>
 
 
@@ -75,10 +110,16 @@
 
             <div class= "box">
                 <label class = "infoType"> Email</label>
-                <input type = "email"
+                
+                <?php
+                    
+                echo '<input type = "email"
                        name = "email" 
-                       placeholder = "Veuillez renseigner un email"
-                       required>
+                       placeholder = "'.$Uemail.'"
+                       required> '
+                
+                ?>
+                
             </div>
 
 
@@ -87,34 +128,57 @@
 
             <div class= "box">
                 <label class = "infoType"> Numéro et Nom de rue</label>
-                <input type = "text" 
+                
+                <?php
+                    
+                echo '<input type = "text" 
                        name = "street" 
-                       placeholder = "Veuillez renseigner votre rue"
-                       required>
+                       placeholder = "'.$Ustreet.'"
+                       required> '
+                
+                ?>
+                
             </div>
 
             <div class= "box">
                 <label class = "infoType"> Ville</label>
-                <input type = "text" 
+                
+                <?php
+                    
+                echo ' <input type = "text" 
                        name = "city" 
-                       placeholder = "Veuillez renseigner votre ville"
-                       required>
+                       placeholder = "'.$Ucity.'"
+                       required> '
+                
+                ?>
+                
             </div>
 
             <div class= "box">
                 <label class = "infoType"> Province</label>
-                <input type = "text" 
+                
+                <?php
+                    
+                echo ' <input type = "text" 
                        name = "province" 
-                       placeholder = "Veuillez renseigner votre province"
-                       required>
+                       placeholder = "'.$Uprovince.'"
+                       required> '
+                
+                ?>
+                
             </div>
 
             <div class= "box">
                 <label class = "infoType"> Code postal</label>
-                <input type = "text" 
+                <?php
+                    
+                echo ' <input type = "text" 
                        name = "code-postal" 
-                       placeholder = "Veuillez renseigner votre province"
-                       required>
+                       placeholder = "'.$Ucodepostal.'"
+                       required> '
+                
+                ?>
+                
             </div>
 
 
@@ -122,25 +186,44 @@
             <h3> Informations de connexion</h3>
             <div class= "box">
                 <label class = "infoType"> SSN </label>
-                <input type = "number" 
+                
+                <?php
+
+                echo
+                 '<input type = "number" 
                        name = "ssn" 
-                       placeholder = "0000"
+                       placeholder = "'.$SSN.'"
                        disabled= "disabled"
-                       required>
+                       required>'
+                
+                     
+
+                ?>
+                
+                
+               
             </div>
 
             <div class= "box">
                 <label class = "infoType"> Mot de passe </label>
-                <input type = "password" 
+                
+                 <?php
+
+                echo
+                 '<input type = "password" 
                        name = "password" 
-                       placeholder = "Veuillez entrer un mot de passe"
-                       required>
+                       placeholder = "'.$Upassword.'"
+                       required>'
+                     
+
+                ?>
+                
             </div>
 
-            <div class= "box">
-                <label class = "infoType"> Confirmation Mot de passe </label>
+           #<div class= "box">
+                #<label class = "infoType"> Confirmation Mot de passe </label>
                 <input type = "password" name = "password" 
-                       placeholder = "Re-entrez le nouveau mot de passe"
+                       placeholder = "Nouveau mot de passe"
                         required>
             </div>
 
