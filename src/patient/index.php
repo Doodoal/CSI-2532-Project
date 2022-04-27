@@ -35,8 +35,13 @@
     <body>
         
         <div class = "header">
-        <h1 >&nbsp;   Bienvenue</h1>
-        <a href = "../"><img src = "../img/Log_out.png" alt="Se déconnecter" > </a>
+            <div class="concat"> 
+                <img src = "../img/client.png"> 
+                <h1 >&nbsp;   Portail Patient</h1>
+            
+            </div>
+            
+            <a href = "../"><img src = "../img/Log_out.png" alt="Se déconnecter" > </a>
         </div>
         
         

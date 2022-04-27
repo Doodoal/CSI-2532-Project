@@ -78,6 +78,11 @@ th{
     
 }
 
+.concat{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 
 .flexbox-item{
     margin: 25px 25px 25px 25px;
