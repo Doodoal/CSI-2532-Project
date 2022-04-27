@@ -220,8 +220,8 @@
                 
             </div>
 
-           #<div class= "box">
-                #<label class = "infoType"> Confirmation Mot de passe </label>
+            <div class= "box">
+                <label class = "infoType"> Confirmation Mot de passe </label>
                 <input type = "password" name = "password" 
                        placeholder = "Nouveau mot de passe"
                         required>
