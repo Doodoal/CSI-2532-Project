@@ -63,12 +63,14 @@ tr{
 td{
     margin: 3px 3px 3px 3px ;
     background-color: lightgrey;
+    text-align: center;
     
     
 }
 
 table{
     width: 600px;
+    text-align: center;
 }
 
 th{

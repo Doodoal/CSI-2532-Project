@@ -11,7 +11,8 @@
         if (!isset($SSN)){
            $SSN = 0; 
         }
-
+        
+    
         
     
     ?>
@@ -21,7 +22,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/x-icon" href="../img/patient.png">
         
-        
+       
     </head>
     
     <?php 

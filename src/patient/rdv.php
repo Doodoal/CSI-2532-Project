@@ -15,12 +15,12 @@ catch (Exception $e)
 
 #Requete
 try{
-    $sqlQuery = 'SELECT *
+    $sqlQuery = 'SELECT A.status, B.name, A.date, A.start_hour, A.end_hour, A.room
         
         
-        FROM rendez-vous 
+        FROM rendezvous A , utilisateur B
         
-        WHERE  patient_id EXISTS 
+        WHERE A.patient_id IN
         
         (SELECT patient_id 
         
@@ -28,9 +28,11 @@ try{
         
         WHERE
         
-        SSN = :SSN) 
+        SSN = :SSN) AND B.SSN IN (SELECT U.SSN
+                                    FROM EMPLOYEE U
+                                    WHERE U.employee_id = A.employee_id)
         
-        ORDER BY date';
+        ORDER BY date DESC;';
 
         $dataStatement = $db->prepare($sqlQuery);
             
@@ -64,7 +66,7 @@ try{
     if ( isset($datas)){
     foreach ($datas as $data){
         rdvRow($data['status'],
-               $data['employee_id'],
+               $data['name'],
                $data['date'],
                $data['start_hour'],
                $data['end_hour'],

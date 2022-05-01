@@ -1,0 +1,61 @@
+h1{
+			color: whitesmoke;
+			background-color: darkred;
+			text-align: center;
+			text-decoration: underline;
+
+		}
+		h2{
+			text-align: center;
+		}
+		p{
+			color: pink;
+			background-color: black;
+			text-align: center;
+			text-decoration: !important;
+		}
+		ul{
+			text-align: center;
+		}
+		form{
+			text-align: center;
+		}
+		h3{
+			text-align: center;
+			color: darkred;
+			text-decoration: !important;
+
+		}
+		a{
+			text-align: center;
+			color: darkred;
+			text-decoration: !important;
+		}
+		title{
+			text-align: center;
+			color: whitesmoke;
+			background-color: blueviolet;
+		}
+		table{
+			border-collapse: collapse;
+			min-width: 400px;
+			width: auto;
+            
+			
+		}
+		thead,tr{
+			background-color: midnightblue;
+			color: pink;
+			text-align: left;
+		}
+		th, td {
+		padding: 15px 20px;
+		}
+		tbody tr, td, th{
+			border:  1px solid ;
+		}
+
+		tbody tr:nth-child(even){
+			background-color: pink;
+            color: black;
+		}

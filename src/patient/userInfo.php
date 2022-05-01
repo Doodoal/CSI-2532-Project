@@ -1,9 +1,20 @@
 <!DOCTYPE html>
         <html>
-
+        <head>
+            
+             
+            
+            </head>
     
     <?php
         
+            if (isset($_SESSION['Message'])){
+                echo '
+            <script>
+                alert("'.$_SESSION['Message'].'");
+                
+        </script>';
+            }
         #Connexion
         try
         {
@@ -38,7 +49,7 @@
             $Ucity = $data['city'] ??'Veuillez renseigner votre ville';
             $Uprovince = $data['province']?? 'Veuillez renseigner votre province' ;
             
-            $Ucodepostal = $data['code-postal'] ?? 'Veuillez renseigner votre code postal' ;
+            $Ucodepostal = $data['code_postal'] ?? 'Veuillez renseigner votre code postal' ;
         }
 
     ?>
@@ -53,8 +64,9 @@
 <div class = "flexbox-item  "> 
     <h2> Données personnelles</h2>
     <div class= "userInfo">
-        <form action="_blank"
-              method ="get" >
+        <form action="update.php"
+              method ="post" 
+              onsubmit = "return validate();">
 
             <div class= "box">
                 <label class = "infoType"> Nom </label>
@@ -64,7 +76,7 @@
                 echo
                 '<input type = "text" 
                        name = "surname" 
-                       placeholder= "'.$Uname.' " 
+                       value= "'.$Uname.' " 
                        disabled= "disabled"
                        >'
 
@@ -78,7 +90,7 @@
                  
                  echo '<input type = "text" 
                        name = "name" 
-                       placeholder= "'.$Usurname.'" 
+                       value= "'.$Usurname.'" 
                        disabled= "disabled">'
                  ?>
                 
@@ -103,7 +115,7 @@
                 <label class = "infoType"> Age</label>
                 <input type = "number" 
                        name = "age" 
-                       placeholder = "0"
+                       value = "0"
                        disabled= "disabled">
             </div>
 
@@ -115,7 +127,7 @@
                     
                 echo '<input type = "email"
                        name = "email" 
-                       placeholder = "'.$Uemail.'"
+                       value = "'.$Uemail.'"
                        required> '
                 
                 ?>
@@ -133,7 +145,7 @@
                     
                 echo '<input type = "text" 
                        name = "street" 
-                       placeholder = "'.$Ustreet.'"
+                       value = "'.$Ustreet.'"
                        required> '
                 
                 ?>
@@ -147,7 +159,7 @@
                     
                 echo ' <input type = "text" 
                        name = "city" 
-                       placeholder = "'.$Ucity.'"
+                       value = "'.$Ucity.'"
                        required> '
                 
                 ?>
@@ -161,7 +173,7 @@
                     
                 echo ' <input type = "text" 
                        name = "province" 
-                       placeholder = "'.$Uprovince.'"
+                       value = "'.$Uprovince.'"
                        required> '
                 
                 ?>
@@ -173,8 +185,8 @@
                 <?php
                     
                 echo ' <input type = "text" 
-                       name = "code-postal" 
-                       placeholder = "'.$Ucodepostal.'"
+                       name = "code_postal" 
+                       value = "'.$Ucodepostal.'"
                        required> '
                 
                 ?>
@@ -192,7 +204,7 @@
                 echo
                  '<input type = "number" 
                        name = "ssn" 
-                       placeholder = "'.$SSN.'"
+                       value = "'.$SSN.'"
                        disabled= "disabled"
                        required>'
                 
@@ -212,7 +224,7 @@
                 echo
                  '<input type = "password" 
                        name = "password" 
-                       placeholder = "'.$Upassword.'"
+                       value = "'.$Upassword.'"
                        required>'
                      
 
@@ -222,9 +234,16 @@
 
             <div class= "box">
                 <label class = "infoType"> Confirmation Mot de passe </label>
-                <input type = "password" name = "password" 
-                       placeholder = "Nouveau mot de passe"
-                        required>
+                <?php
+
+                echo
+                 '<input type = "password" 
+                       name = "Npassword" 
+                       value = "'.$Upassword.'"
+                       required>'
+                     
+
+                ?>
             </div>
 
             <div class = "submitBtn">
