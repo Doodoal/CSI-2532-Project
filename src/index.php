@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html>
+    <?php
+    
+   
+    if (isset($_SESSION['Rmessage'])){
+                echo '
+                <script>
+                alert("'.$_SESSION['Rmessage'].'");
+                
+                </script>';
+                session_unset();
+            }
+    
+                    
+
+    
+    ?>
 <head>
 <link rel="stylesheet" href="rr.css">
+    
+     
+    
 <title> Cabinet dentaire </title>
 <link rel="shorcut icon" href="projet/pngs.png">
 </head>
@@ -22,7 +41,7 @@
           <input type="number" placeholder="SSN" name="SSN"/>
           <input type="password" placeholder="MOT DE PASSE" name="password" />
           <button>CONNEXION</button>
-          <p class="message">Vous n'avez pas de compte? <a href="#">Creez en un</a></p>
+          <p class="message">Vous n'avez pas de compte? <a href="register/">Creez en un</a></p>
         </form>
       </div>
     </div>

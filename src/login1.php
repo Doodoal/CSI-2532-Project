@@ -42,7 +42,7 @@ if (isset($_POST['SSN']) &&  isset($_POST['password'])){
         case'patient':
             
             redirect('patient/index.php');
-        case'dentist':
+        case'dentiste':
             redirect('dentiste/index.php');
     }
  }

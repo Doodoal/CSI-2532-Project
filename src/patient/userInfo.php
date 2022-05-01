@@ -14,6 +14,7 @@
                 alert("'.$_SESSION['Message'].'");
                 
         </script>';
+                unset($_SESSION['Message']);
             }
         #Connexion
         try
