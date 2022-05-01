@@ -42,7 +42,7 @@
             $Uname = $data['Name']?? 'Nom non renseigné';
             $Upassword = $data['Password']?? '---------';
             $Usurname = $data['surname']?? 'Prénom(s) non renseigné(s)';
-            $Ubirthday = $data['birthday'];
+            $Ubirthday = $data['birthday'] ?? date("Y-m-d");
             $Uemail = $data['email'] ??'Veuillez renseigner votre email';
             
             $Ustreet = $data['street'] ??'Veuillez renseigner votre rue';
@@ -51,6 +51,9 @@
             
             $Ucodepostal = $data['code_postal'] ?? 'Veuillez renseigner votre code postal' ;
         }
+            $currentDate = date("Y-m-d");
+            $age = $age = date_diff(date_create($Ubirthday), date_create($currentDate));
+            
 
     ?>
     
@@ -113,10 +116,14 @@
 
             <div class= "box">
                 <label class = "infoType"> Age</label>
-                <input type = "number" 
+                <?php
+                
+                    echo '<input type = "number" 
                        name = "age" 
-                       value = "0"
-                       disabled= "disabled">
+                       value = "'.$age->format("%y").'"
+                       disabled= "disabled">'
+                    
+                    ?>
             </div>
 
 
