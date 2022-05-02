@@ -26,6 +26,25 @@ h1{
 			text-decoration: !important;
 
 		}
+
+.flexbox-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color:white;
+    
+            
+}
+
+.flexbox-item{
+    margin: 25px 25px 25px 25px;
+    
+    
+    color: black;
+    
+    
+}
+
 		a{
 			text-align: center;
 			color: darkred;
@@ -45,8 +64,8 @@ h1{
 		}
 		thead,tr{
 			background-color: midnightblue;
-			color: pink;
-			text-align: left;
+			color: white;
+			text-align: center;
 		}
 		th, td {
 		padding: 15px 20px;
@@ -56,6 +75,6 @@ h1{
 		}
 
 		tbody tr:nth-child(even){
-			background-color: pink;
+			background-color: white;
             color: black;
 		}

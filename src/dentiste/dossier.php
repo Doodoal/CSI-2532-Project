@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
     <?php 
@@ -15,7 +17,7 @@
 	
 	<title> BLOC DENTISTE </title>
 </head>
-<body bgcolor="pink" >
+<body  >
 	<h1> BIENVENUE AU PORTAIL DES DENTISTES </h1>
 	<h2> <img src="sante.jpg" width="300"> </h2>
 	
@@ -41,15 +43,13 @@
 		<input type="number" name="SSN" placeholder="Entrez le SSN du patient" required>
             <input type = submit value = "Voir informations patient">
 	</div>
-	<br>
-        
-        
 	
-	
-		
 	</form>
     
-      <p>
+        <?php include('exp.php'); ?>
+	
+        
+        <p>
         <br>
         <br>
         </p>
@@ -67,15 +67,6 @@
 	
         </div>
 
-<?php
-    function td($attribute){
-    echo '<td>'.$attribute.'</td>' ;
-}
 
-
-
-?>
-    
-    ?>
 </body>
 </html>

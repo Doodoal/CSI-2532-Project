@@ -11,7 +11,7 @@ if (isset($_POST['SSN'])) {
  $SSN = $_POST['SSN'];
 }
 
-include('index.php');
+
 
 #Connexion
 try
@@ -54,7 +54,10 @@ try{
 
 ?>
 
-<table>
+<div class ="flexbox-container">
+    <div class = "flexbox-item">
+    <h3>Informations du patient</h3>
+    <table>
 <tr>
 
     <th> Nom </th>
@@ -80,6 +83,21 @@ try{
     ?>
     
 </table>
+    </div>
+    
+    
+    <div class = "flexbox-item">
+    <h3> Rendez-vous avec ce patient</h3>
+    <?php
+        include('rdv1.php');
+        ?>
+    
+    
+    </div>
+
+
+</div>
+
 
 
 <?php
