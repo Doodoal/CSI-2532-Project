@@ -99,6 +99,7 @@ session_start();
                <input type = "number" 
                        name = "ssn" 
                        placeholder = "SSN"
+                      minlength = "9"
                        required>
                 
                      
@@ -140,6 +141,7 @@ session_start();
                  <input type = "password" 
                        name = "password" 
                         placeholder = "Mot de passe"
+                        minlength = 6
                        required>
                      
 
@@ -152,6 +154,7 @@ session_start();
                <input type = "password" 
                        name = "Npassword" 
                        placeholder = "Confirmation Mot de passe"
+                       minlength = 6
                        required>
             </div>
 

@@ -9,9 +9,9 @@
                 alert("'.$_SESSION['Rmessage'].'");
                 
                 </script>';
-                session_unset();
+                
             }
-    
+    session_unset();
                     
 
     
