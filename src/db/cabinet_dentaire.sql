@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 01, 2022 at 09:43 PM
+-- Generation Time: May 02, 2022 at 03:49 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -43,7 +43,10 @@ INSERT INTO `employee` (`employee_id`, `SSN`, `role`, `salary`) VALUES
 (2, 102001, 'dentiste', 20000),
 (3, 3524, 'dentiste', 150000),
 (8, 1002, 'receptionniste', 100000),
-(9, 19790102, 'dentiste', 150000);
+(9, 19790102, 'dentiste', 150000),
+(10, 1234, 'receptionniste', 100000),
+(11, 19811229, 'dentiste', 150000),
+(12, 19850411, 'receptionniste', 100000);
 
 -- --------------------------------------------------------
 
@@ -66,7 +69,8 @@ INSERT INTO `patient` (`SSN`, `patient_id`, `insurance`) VALUES
 (0, 3, 'Aucune assurance'),
 (4564, 4, 'Aucune assurance'),
 (4563, 5, 'Aucune assurance'),
-(1001, 6, 'Aucune assurance');
+(1001, 6, 'Aucune assurance'),
+(19890708, 7, 'Aucune assurance');
 
 -- --------------------------------------------------------
 
@@ -91,7 +95,9 @@ CREATE TABLE `rendezvous` (
 
 INSERT INTO `rendezvous` (`rdv_id`, `patient_id`, `employee_id`, `date`, `start_hour`, `end_hour`, `status`, `room`) VALUES
 (1, 2, 1, '2022-05-31', '14:08:00', '15:08:00', 'À venir', '22'),
-(2, 2, 1, '2022-03-15', '13:25:00', '14:25:00', 'Effectué', '24');
+(2, 2, 1, '2022-03-15', '13:25:00', '14:25:00', 'Effectué', '24'),
+(3, 2, 1, '2022-05-10', '23:15:00', '21:17:00', 'A venir', '32'),
+(4, 7, 11, '2022-05-02', '11:17:00', '00:17:00', 'A venir', '45');
 
 -- --------------------------------------------------------
 
@@ -122,14 +128,18 @@ INSERT INTO `utilisateur` (`SSN`, `Name`, `Password`, `Role`, `email`, `surname`
 (999, 'Yephihy Akissi Paule Noura', 'AZERTY99', 'patient', 'test@test.T', 'Offia', '2004-05-24', '80 Localhost ', 'Src', 'Project', '4D1-M1N'),
 (1001, 'Test', 'test', 'patient', 'T1@test.Test', 'T1', '2022-05-01', 'Veuillez renseigner votre rue', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
 (1002, 'Test', '12345', 'receptionniste', 'dummy@dummy.org', 'T2', '2022-05-01', 'Veuillez renseigner votre rue', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
+(1234, 'wsd', 'qwertyu', 'receptionniste', 'oddd@gmail.com', 'qeeq', '2022-05-06', 'Veuillez renseigner votre rue', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
 (3524, 'RHS', '12345', 'dentiste', 'oddd@gmail.com', 'Php', '2022-05-04', 'Veuillez renseigner votre rue', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
 (4563, 'Dummy', 'ABCDEF', 'patient', 'dummy@dummy.org', 'Dummy3', '2022-05-01', 'Veuillez renseigner votre rue', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
 (4564, 'Dummy', '12345', 'patient', 'dummy@dummy.org', 'Dummy2', '2022-05-01', 'Veuillez renseigner votre rue', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
 (102001, 'Parker', 'peta', 'dentiste', 'peter@peta.paka', 'Peter', '2001-08-10', 'Veuillez renseigner votre rue', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
 (19790102, 'Pierre', 'azerty01', 'dentiste', 'fauch@rd.pierre', 'Fauchard', '1979-01-02', 'Veuillez renseigner votre rue', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
+(19811229, 'Rosalie', 'azerty04', 'dentiste', 'ros@l.ie', 'Fougelberg', '1981-12-29', 'Rue imaginaire', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
+(19850411, 'Bessica', 'azerty05', 'receptionniste', 'Bessic@R.aiche', 'Raiche', '1985-04-11', 'Rue imaginaire', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
+(19890708, 'Amalia', 'azerty03', 'patient', 'amali@A.ssur', 'ASSUR', '1989-07-08', 'Test', 'Veuillez renseigner votre ville', 'Veuillez renseigner votre province', '___-___'),
 (78777675, 'Dylan', 'Azerty04', 'patient', NULL, 'D', '2022-04-12', '', '', '', ''),
 (82818079, 'Gloria', 'Azerty03', 'patient', '', NULL, NULL, '', '', '', ''),
-(86858483, 'Sebastien', 'Azerty02', 'dentiste', NULL, NULL, '2022-04-14', '', '', '', ''),
+(86858483, 'Sebastien', 'Azerty02', 'dentiste', 'Seb@gmail.com', NULL, '2022-04-14', 'Def', 'Def', 'Def', 'Def'),
 (90898887, 'Stephane', 'Azerty01', 'dentiste', NULL, 'N\'zue', NULL, '', '', '', '');
 
 --
@@ -170,19 +180,19 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `employee_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `employee_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `patient_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `patient_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rendezvous`
 --
 ALTER TABLE `rendezvous`
-  MODIFY `rdv_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `rdv_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
